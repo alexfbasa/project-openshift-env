@@ -11,6 +11,10 @@ node {
         sh 'echo ${distro}'
     }
     stage('Checkout') {
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/alexfbasa/project-openshift-env.git']]])
+        checkout([$class: 'GitSCM',
+        branches: [[name: '*/master']],
+        extensions: [],
+        userRemoteConfigs: [[url: 'https://github.com/alexfbasa/project-openshift-env.git']]])
+        echo "scm userRemoteConfigs is ${scm.userRemoteConfigs[0]}"
     }
 }
