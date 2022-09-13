@@ -14,4 +14,7 @@ node {
     stage ('Print Input Params'){
         println "The linux distro selected was: ${distro}"
     }
+    stage('Checkout SCM') {
+        checkout scm
+    }
 }
