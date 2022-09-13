@@ -12,8 +12,8 @@ node {
     }
     stage('Checkout') {
         checkout([$class: 'GitSCM',
-        echo "scm checkout is ${checkout[0]}"
         branches: [[name: '*/master']],
+        echo "scm branches is ${branches[0].name}"
         extensions: [],
         userRemoteConfigs: [[url: 'https://github.com/alexfbasa/project-openshift-env.git']]])
         echo "scm userRemoteConfigs is ${scm.userRemoteConfigs[0]}"
