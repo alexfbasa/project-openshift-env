@@ -12,7 +12,7 @@ node {
     }
     stage('Checkout') {
         checkout([$class: 'GitSCM',
-        echo "scm checkout is ${scm.checkout[0]}"
+        echo "scm checkout is ${checkout[0]}"
         branches: [[name: '*/master']],
         extensions: [],
         userRemoteConfigs: [[url: 'https://github.com/alexfbasa/project-openshift-env.git']]])
