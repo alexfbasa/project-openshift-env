@@ -1,22 +1,8 @@
 @Library("pipeline-shared-lib") _
 
-node {
-    properties([
-            parameters([
-                    choice(choices: ['bullseye', 'buster', 'stretch', 'jessie'], description: 'Select your distro version',
-                            name: 'distro'),
-            ])
-    ])
-    stage ('Print Input Params'){
-        sh 'echo ${distro}'
-    }
-    stage('Checkout') {
-        checkout([$class: 'GitSCM',
-        branches: [[name: '*/master']],
-        echo "scm branches is ${scm.branches[0].name}"
-        extensions: [],
-        userRemoteConfigs: [[url: 'https://github.com/alexfbasa/project-openshift-env.git']]])
-        echo "scm userRemoteConfigs is ${scm.userRemoteConfigs[0]}"
-        echo "scm userRemoteConfigs.url is ${scm.userRemoteConfigs[0].url}"
-    }
-}
+import com.br.devops.pipeline_shared_library.utils.*
+
+def parameters
+Utils utils = new Utils()
+GitUtils gitUtils = new GitUtils()
+
