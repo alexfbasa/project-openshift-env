@@ -14,7 +14,7 @@ node {
     stage ('Print Input Params'){
         println "The linux distro selected was: ${distro}"
     }
-    stage('Checkout SCM') {
-        checkout scm
+    stage('Checkout') {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/alexfbasa/project-openshift-env.git']]])
     }
 }
