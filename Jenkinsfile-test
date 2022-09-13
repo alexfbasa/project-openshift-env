@@ -8,6 +8,6 @@ node {
             ])
     ])
     stage ('Print Input Params'){
-        println "The distro selected was: ${distro}"
+        println "The linux distro selected was: ${distro}"
     }
 }
