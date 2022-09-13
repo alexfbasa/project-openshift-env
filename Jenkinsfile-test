@@ -1,10 +1,6 @@
 @Library("pipeline-shared-lib") _
 
 node {
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '1'))
-        timestamps()
-    }
     properties([
             parameters([
                     choice(choices: ['bullseye', 'buster', 'stretch', 'jessie'], description: 'Select your distro version',
