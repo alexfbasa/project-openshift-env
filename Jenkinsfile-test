@@ -16,5 +16,6 @@ node {
         extensions: [],
         userRemoteConfigs: [[url: 'https://github.com/alexfbasa/project-openshift-env.git']]])
         echo "scm userRemoteConfigs is ${scm.userRemoteConfigs[0]}"
+        echo "scm userRemoteConfigs.url is ${scm.userRemoteConfigs[0].url}"
     }
 }
